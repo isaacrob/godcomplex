@@ -16,6 +16,7 @@ def _post_install(dir):
 		call(['sudo','apt-get','install','python-espeak','flac','-y'])
 	print "finished post install"
 	call(['chmod','777',"/usr/local/lib/python2.7/dist-packages/godcomplex/batman.mp3"])
+	call(['chmod','777',"/usr/local/lib/python2.7/dist-packages/godcomplex/daffy_language.mp3"])
 
 class install(_install):
 	def run(self):
@@ -24,14 +25,14 @@ class install(_install):
 
 setup(name="godcomplex",
 	cmdclass={'install':install},
-	data_files=[('godcomplex',['batman.mp3'])],
+	data_files=[('godcomplex',['batman.mp3','daffy_language.mp3'])],
 	version="0.0.9",
 	description="this will say something if you say god",
 	author="Isaac Robinson",
 	author_email="isaacrob@me.com",
 	license="GNU",
 	packages=["godcomplex"],
-	scripts=['bin/godcomplex','bin/batmancomplex'],
+	scripts=['bin/godcomplex','bin/batmancomplex','bin/swearcomplex'],
 	keywords=["god","irony","speech recognition"],
 	install_requires=['SpeechRecognition'],
 	zip_safe=False)
